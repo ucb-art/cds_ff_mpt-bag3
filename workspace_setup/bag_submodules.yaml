@@ -14,17 +14,14 @@
 # limitations under the License.
 
 BAG_framework:
-  url: git@github.com:ucb-art/BAG_framework.git
-  branch: bag3
-bag_serdes_ec:
-  url: git@github.com:ucb-art/bag_serdes_ec.git
-  branch: bag3
-bag_testbenches_ec:
-  url: git@github.com:ucb-art/bag_testbenches_ec.git
-  branch: bag3
-bag_digital_ec:
-  url: git@github.com:ucb-art/bag_digital_ec.git
-  branch: bag3
-BAG_XBase_demo:
-  url: git@github.com:ucb-art/BAG_XBase_demo.git
-  branch: bag3
+  url: git@github.com:ucb-art/bag.git
+  branch: master
+xbase_bcad:
+  url: git@github.com:bluecheetah/xbase.git
+  branch: master
+bag3_digital:
+  url: git@github.com:bluecheetah/bag3_digital.git
+  branch: master
+bag3_analog:
+  url: git@github.com:bluecheetah/bag3_analog.git
+  branch: master
