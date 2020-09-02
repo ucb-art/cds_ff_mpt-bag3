@@ -45,6 +45,8 @@ cdl_netlist
 .tmp_*
 libManager.log.*
 abstract*
+hdl.var
+lefout.list
 
 # calibre files
 .cgidrcdb
