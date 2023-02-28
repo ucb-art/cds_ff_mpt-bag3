@@ -514,18 +514,12 @@ layer:
   V0: 50
   M1: 60
   CutM1: 64
-  CutM1Mask1: 65
-  CutM1Mask2: 66
   V1: 70
   M2: 80
   CutM2: 85
-  CutM2Mask1: 86
-  CutM2Mask2: 87
   V2: 90
   M3: 100
   CutM3: 102
-  CutM3Mask1: 103
-  CutM3Mask2: 104
   V3: 105
   M4: 110
   V4: 115
@@ -536,6 +530,60 @@ layer:
   M7: 140
   VT: 145
   MT: 150
+  Unrouted: 200
+  Row: 201
+  Group: 202
+  Cannotoccupy: 203
+  Canplace: 204
+  hardFence: 205
+  softFence: 206
+  y0: 207
+  y1: 208
+  y2: 209
+  y3: 210
+  y4: 211
+  y5: 212
+  y6: 213
+  y7: 214
+  y8: 215
+  y9: 216
+  designFlow: 217
+  stretch: 218
+  edgeLayer: 219
+  changedLayer: 220
+  unset: 221
+  unknown: 222
+  spike: 223
+  hiz: 224
+  resist: 225
+  drive: 226
+  supply: 227
+  wire: 228
+  pin: 229
+  text: 230
+  device: 231
+  border: 232
+  snap: 233
+  align: 234
+  prBoundary: 235
+  instance: 236
+  annotate: 237
+  marker: 238
+  select: 239
+  substrate: 240
+  solderMaskBottom: 241
+  beginGenericLayer: 242
+  internalGenericLayer: 243
+  endGenericLayer: 244
+  solderMaskTop: 245
+  drill: 246
+  wirebond: 247
+  wirebondFingerGuide: 248
+  assemblyBoundary: 249
+  grid: 251
+  axis: 252
+  hilite: 253
+  background: 254
   localInt: 6000
   badV0LI: 6001
   badV0M1: 6002
@@ -555,6 +603,7 @@ layer:
   badVTMT: 7062
   bulkActive: 10002
   cutSubstrate: 10003
+  isoSubstrate: 10004
   Gate: 10011
   PolyNotCut: 10012
   PolyNotRes: 10013
@@ -566,6 +615,8 @@ layer:
   HvActive: 10027
   NwellStiRes: 10028
   NwellOdRes: 10029
+  NwellRes: 10030
+  NwellNotRes: 10031
   NtypeImp: 11001
   NImplant: 11002
   PtypeImp: 11005
@@ -585,27 +636,39 @@ layer:
   finGate: 12004
   M1Mask1: 13000
   M1Mask2: 13002
-  M1NotCut: 13004
-  M1NotCutMask1: 13006
-  M1NotCutMask2: 13008
-  M1NotRes: 13009
-  M2Mask1: 13010
-  M2Mask2: 13012
-  M2NotCut: 13014
-  M2NotCutMask1: 13016
-  M2NotCutMask2: 13018
-  M2NotRes: 13019
-  M3Mask1: 13020
-  M3Mask2: 13022
-  M3NotCut: 13024
-  M3NotCutMask1: 13026
-  M3NotCutMask2: 13028
-  M3NotRes: 13029
-  M4NotRes: 13030
-  M5NotRes: 13032
-  M6NotRes: 13034
-  M7NotRes: 13036
-  MTNotRes: 13038
+  M1Gray: 13004
+  M1CutMask1: 13006
+  M1CutMask2: 13008
+  M1CutGray: 13010
+  M1Mask1Cut: 13012
+  M1Mask2Cut: 13014
+  M1GrayCut: 13016
+  M1NotRes: 13018
+  M2Mask1: 13020
+  M2Mask2: 13022
+  M2Gray: 13024
+  M2CutMask1: 13026
+  M2CutMask2: 13028
+  M2CutGray: 13030
+  M2Mask1Cut: 13032
+  M2Mask2Cut: 13034
+  M2GrayCut: 13036
+  M2NotRes: 13038
+  M3Mask1: 13040
+  M3Mask2: 13042
+  M3Gray: 13044
+  M3CutMask1: 13046
+  M3CutMask2: 13048
+  M3CutGray: 13050
+  M3Mask1Cut: 13052
+  M3Mask2Cut: 13054
+  M3GrayCut: 13056
+  M3NotRes: 13058
+  M4NotRes: 13090
+  M5NotRes: 13092
+  M6NotRes: 13094
+  M7NotRes: 13096
+  MTNotRes: 13098
   CB: 20000
   FB48: 20001
   CMT: 99900
@@ -632,35 +695,29 @@ layer:
   mimW: 99934
   mimL: 99935
   M1CA: 13040
+  M3CB: 13062
   M1CB: 13042
   M2CA: 13050
   M2CB: 13052
   M3CA: 13060
-  M3CB: 13062
 purpose:
-  dummy: 1000
-  fin: 12000
-  SADPEnds: 20000
-  fin48: 30000
-  global: 30030
-  poly86: 30100
-  poly90: 30110
-  poly94: 30120
-  poly102: 30130
-  poly104: 30140
-  localWSP: 40000
-  edge: 99900
-  oaCustomFill: 4294967284
-  oaFillOPC: 4294967285
-  redundant: 4294967288
-  gapFill: 4294967289
-  annotation: 4294967290
-  OPCAntiSerif: 4294967291
-  OPCSerif: 4294967292
-  slot: 4294967293
-  fill: 4294967294
-  drawing: 4294967295
+  dynamic: 222
+  fatal: 223
+  critical: 224
+  soCritical: 225
+  soError: 226
+  ackWarn: 227
+  info: 228
+  track: 229
+  blockage: 230
+  grid: 231
+  warning: 234
+  tool1: 235
+  tool0: 236
   label: 237
+  flight: 238
+  error: 239
+  annotate: 240
   drawing1: 241
   drawing2: 242
   drawing3: 243
@@ -672,7 +729,79 @@ purpose:
   drawing9: 249
   boundary: 250
   pin: 251
+  net: 253
+  cell: 254
+  all: 255
+  dummy: 1000
+  fin: 12000
+  exclude: 12100
+  critexcl: 12200
+  vdd1p8: 12300
+  SADPEnds: 20000
+  fin48: 30000
+  global: 30030
+  poly86: 30100
+  poly90: 30110
+  poly94: 30120
+  poly102: 30130
+  poly104: 30140
+  localWSP: 40000
+  edge: 99900
+  customFill: 4294967284
+  fillOPC: 4294967285
+  redundant: 4294967288
+  gapFill: 4294967289
+  annotation: 4294967290
+  OPCAntiSerif: 4294967291
+  OPCSerif: 4294967292
+  slot: 4294967293
+  fill: 4294967294
+  drawing: 4294967295
 via_layers:
+  MT_CMT:
+    - [99900, 4294967295]
+    - [145, 4294967295]
+    - [150, 4294967295]
+  MT_M7:
+    - [140, 4294967295]
+    - [145, 4294967295]
+    - [150, 4294967295]
+  M7_M6:
+    - [130, 4294967295]
+    - [135, 4294967295]
+    - [140, 4294967295]
+  M6_M5:
+    - [120, 4294967295]
+    - [125, 4294967295]
+    - [130, 4294967295]
+  M5_M4:
+    - [110, 4294967295]
+    - [115, 4294967295]
+    - [120, 4294967295]
+  M4_M3:
+    - [100, 4294967295]
+    - [105, 4294967295]
+    - [110, 4294967295]
+  M3_M2:
+    - [80, 4294967295]
+    - [90, 4294967295]
+    - [100, 4294967295]
+  M2_M1:
+    - [60, 4294967295]
+    - [70, 4294967295]
+    - [80, 4294967295]
+  Li_Substrate:
+    - [10, 4294967295]
+    - [40, 4294967295]
+    - [40, 4294967295]
+  Li_NWell:
+    - [10, 4294967295]
+    - [40, 4294967295]
+    - [40, 4294967295]
+  Li_NActive:
+    - [10, 4294967295]
+    - [40, 4294967295]
+    - [40, 4294967295]
   Li_PActive:
     - [10, 4294967295]
     - [40, 4294967295]
@@ -681,46 +810,14 @@ via_layers:
     - [20, 4294967295]
     - [25, 4294967295]
     - [25, 4294967295]
-  M1_LiPo:
-    - [25, 4294967295]
-    - [50, 4294967295]
-    - [60, 4294967295]
   M1_LiAct:
     - [40, 4294967295]
     - [50, 4294967295]
     - [60, 4294967295]
-  M2_M1:
+  M1_LiPo:
+    - [25, 4294967295]
+    - [50, 4294967295]
     - [60, 4294967295]
-    - [70, 4294967295]
-    - [80, 4294967295]
-  M3_M2:
-    - [80, 4294967295]
-    - [90, 4294967295]
-    - [100, 4294967295]
-  M4_M3:
-    - [100, 4294967295]
-    - [105, 4294967295]
-    - [110, 4294967295]
-  M5_M4:
-    - [110, 4294967295]
-    - [115, 4294967295]
-    - [120, 4294967295]
-  M6_M5:
-    - [120, 4294967295]
-    - [125, 4294967295]
-    - [130, 4294967295]
-  M7_M6:
-    - [130, 4294967295]
-    - [135, 4294967295]
-    - [140, 4294967295]
-  MT_M7:
-    - [140, 4294967295]
-    - [145, 4294967295]
-    - [150, 4294967295]
-  MT_CMT:
-    - [99900, 4294967295]
-    - [145, 4294967295]
-    - [150, 4294967295]
 
 colors:
   13040: [60, 129]

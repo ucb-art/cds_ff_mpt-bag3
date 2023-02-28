@@ -28,7 +28,7 @@ socket:
 # Right now only virtuoso is supported.
 database:
   # the python class that handles database interaction.
-  class: "bag.interface.oa.OAInterface"
+  class: "bag.interface.skill.SkillInterface"
   # default directory to create generated libraries in.
   default_lib_path: "${BAG_WORK_DIR}/gen_libs"
   # If true, then everytime we generate schematic/layout from BAG, all opened cellviews are closed
@@ -45,6 +45,16 @@ database:
     # cells to exclude for modeling purposes
     model_exclude_cells:
       basic: ['noConn']
+    # symbol pin master
+    sympin: ["basic", "sympin", "symbolNN"]
+    # input pin master
+    ipin: ["basic", "ipin", "symbol"]
+    # output pin master
+    opin: ["basic", "opin", "symbol"]
+    # inout pin master
+    iopin: ["basic", "iopin", "symbolr"]
+    # simulators where termOrder CDF field should be filled
+    simulators: ["auLvs", "auCdl", "spectre", "hspiceD"]
   # configurations used to create a Checker object to run LVS/RCX
   checker:
     # the Checker class.
@@ -107,6 +117,7 @@ simulation:
     # psf version
     psfversion: '1.1'
     options: ['++aps', '+lqtimeout', '0', '+mt=2', '+mp=2']
+  use_pysrr: true
   compress: True
   rtol: 1.0e-8
   atol: 1.0e-22
