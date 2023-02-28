@@ -13,11 +13,13 @@ venv
 *.log
 IPOPT.out
 lsyncd.status
+core.*
 
 # misc BAG files
 bag_sim
 bag_stimuli
 gen_outputs
+gen_outputs_scratch
 BAG_server_port.txt
 BAG_sim_server_port.txt
 pytest_output
