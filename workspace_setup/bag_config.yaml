@@ -67,9 +67,9 @@ database:
     source_added_file: ''
     # root directories
     root_dir:
-      drc: '${BAG_WORK_DIR}/pvs_run/drc'
-      lvs: '${BAG_WORK_DIR}/pvs_run/lvs'
-      rcx: '${BAG_WORK_DIR}/pvs_run/rcx'
+      drc: '${BAG_TEMP_DIR}/pvs_run/drc'
+      lvs: '${BAG_TEMP_DIR}/pvs_run/lvs'
+      rcx: '${BAG_TEMP_DIR}/pvs_run/rcx'
     # jinja template control files
     template:
       drc: ''
