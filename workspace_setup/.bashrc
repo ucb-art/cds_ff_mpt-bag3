@@ -57,6 +57,9 @@ export LD_LIBRARY_PATH=${BAG_TOOLS_ROOT}/lib:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
 
+# PYTHONPATH_CUSTOM setup
+export PYTHONPATH_CUSTOM=${PYTHONPATH_CUSTOM}:${SRR_HOME}/tools/srrpython
+
 # Virtuoso options
 export SPECTRE_DEFAULTS=-E
 export CDS_Netlisting_Mode="Analog"
