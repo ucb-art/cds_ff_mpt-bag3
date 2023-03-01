@@ -116,7 +116,7 @@ simulation:
     format: psfxl
     # psf version
     psfversion: '1.1'
-    options: ['++aps', '+lqtimeout', '0', '+mt=2', '+mp=2']
+    options: ['++aps', '+lqtimeout', '0']
   use_pysrr: true
   compress: True
   rtol: 1.0e-8
