@@ -31,9 +31,6 @@ export MMSIM_HOME=${SPECTRE_HOME}
 export PVS_HOME=/tools/cadence/PVS/PVS151
 
 # OA settings
-export OA_SRC_ROOT=/tools/B/ayan_biswas/programs/oa_new
-export OA_LINK_DIR=${OA_SRC_ROOT}/lib/linux_rhel70_gcc83x_64/opt
-export OA_INCLUDE_DIR=${OA_SRC_ROOT}/include
 export OA_CDS_ROOT=${CDS_INST_DIR}/oa_v22.60.s007
 export OA_PLUGIN_PATH=${OA_CDS_ROOT}/data/plugins:${OA_PLUGIN_PATH:-}
 export OA_BIT=64
@@ -50,12 +47,11 @@ export PATH=${BAG_TOOLS_ROOT}/bin:${PATH}
 export PATH=/tools/B/ayan_biswas/programs/core/bin:${PATH}
 
 # LD_LIBRARY_PATH setup
-export LD_LIBRARY_PATH=${OA_LINK_DIR}:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=${BAG_WORK_DIR}/cadence_libs:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=${SRR_HOME}/tools/lib/64bit:${LD_LIBRARY_PATH:-}
 export LD_LIBRARY_PATH=${BAG_TOOLS_ROOT}/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
 
 # PYTHONPATH_CUSTOM setup
 export PYTHONPATH_CUSTOM=${PYTHONPATH_CUSTOM}:${SRR_HOME}/tools/srrpython
