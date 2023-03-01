@@ -54,8 +54,8 @@ export LD_LIBRARY_PATH=${OA_LINK_DIR}:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=${BAG_WORK_DIR}/cadence_libs:${LD_LIBRARY_PATH}
 export LD_LIBRARY_PATH=${SRR_HOME}/tools/lib/64bit:${LD_LIBRARY_PATH:-}
 export LD_LIBRARY_PATH=${BAG_TOOLS_ROOT}/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
 
 # PYTHONPATH_CUSTOM setup
 export PYTHONPATH_CUSTOM=${PYTHONPATH_CUSTOM}:${SRR_HOME}/tools/srrpython
@@ -71,6 +71,9 @@ source /tools/flexlm/flexlm.sh
 # Setup LSF
 source /tools/support/lsf/conf/profile.lsf
 export LBS_BASE_SYSTEM=LBS_LSF
+
+# Enable devtoolset
+source scl_source enable devtoolset-8 rh-git29 httpd24
 
 # pybag compiler settings
 export CMAKE_PREFIX_PATH=${BAG_TOOLS_ROOT}
