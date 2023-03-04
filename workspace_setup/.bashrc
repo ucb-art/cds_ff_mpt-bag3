@@ -69,7 +69,9 @@ source /tools/support/lsf/conf/profile.lsf
 export LBS_BASE_SYSTEM=LBS_LSF
 
 # Enable devtoolset
-source scl_source enable devtoolset-8 rh-git29 httpd24
+source /opt/rh/devtoolset-8/enable
+source /opt/rh/rh-git29/enable
+source /opt/rh/httpd24/enable
 
 # pybag compiler settings
 export CMAKE_PREFIX_PATH=${BAG_TOOLS_ROOT}
