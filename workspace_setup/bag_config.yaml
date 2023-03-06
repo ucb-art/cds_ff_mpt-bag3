@@ -91,6 +91,10 @@ database:
       drc: {}
       lvs: {}
       rcx: {}
+    # the SubProcessManager class
+#    mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#    mgr_kwargs:
+#      queue: rhel7  # LSF queue
 
 # Simulation configurations
 simulation:
@@ -116,18 +120,21 @@ simulation:
     format: psfxl
     # psf version
     psfversion: '1.1'
-    options: ['++aps', '+lqtimeout', '0']
+    options: ['++aps', '+lqtimeout', '0']  # , '-mt=2', '-mp=2']
   use_pysrr: true
   compress: True
   rtol: 1.0e-8
   atol: 1.0e-22
+  # the SubProcessManager class
+#  mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#  mgr_kwargs:
+#    queue: rhel7  # LSF queue
 
 # LEF generation configuration
 lef:
   class: 'bag.interface.abstract.AbstractInterface'
   run_dir: 'abstract_run'
   options_file: '${BAG_TECH_CONFIG_DIR}/abstract_setup/bag_abstract.options'
-
 
 # technology specific configuration are stored in a separate file.
 # this field tells BAG where to look for it.
