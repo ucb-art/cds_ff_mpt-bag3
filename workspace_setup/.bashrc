@@ -21,7 +21,7 @@ source .bashrc_bag
 
 # location of various tools
 export CDS_INST_DIR=/tools/cadence/ICADVM/ICADVM201
-export SPECTRE_HOME=/tools/cadence/SPECTRE/SPECTRE201
+export SPECTRE_HOME=/tools/cadence/SPECTRE/SPECTRE211
 export QRC_HOME=/tools/cadence/EXT/EXT191_ISR3
 export SRR_HOME=/tools/cadence/SRR/SRR_0618
 export CMAKE_HOME=/tools/B/ayan_biswas/programs/cmake-3.17.0-Linux-x86_64
