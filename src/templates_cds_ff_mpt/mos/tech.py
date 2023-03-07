@@ -228,6 +228,10 @@ class MOSTechCDSFFMPT(MOSTech):
     def can_short_adj_tracks(self, conn_layer: int) -> bool:
         return False
 
+    @property
+    def can_draw_double_gate(self) -> bool:
+        return False
+
     def get_track_specs(self, conn_layer: int, top_layer: int) -> List[TrackSpec]:
         assert conn_layer == 1, 'currently only work for conn_layer = 1'
 

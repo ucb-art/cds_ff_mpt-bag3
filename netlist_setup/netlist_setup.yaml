@@ -1,18 +1,3 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright 2020 Blue Cheetah Analog Design Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 inc_list:
   4: []
   5: []
@@ -20,17 +5,6 @@ inc_list:
   7: []
 netlist_map:
   BAG_prim:
-    ndio_standard:
-      cell_name: ndio_standard
-      in_terms: []
-      io_terms: [MINUS, PLUS]
-      is_prim: true
-      lib_name: BAG_prim
-      nets: []
-      out_terms: []
-      props:
-        l: [3, '']
-        w: [3, '']
     nmos4_18:
       cell_name: nmos4_18
       in_terms: []
@@ -114,17 +88,6 @@ netlist_map:
       props:
         l: [3, '']
         nf: [3, '']
-        w: [3, '']
-    pdio_standard:
-      cell_name: pdio_standard
-      in_terms: []
-      io_terms: [MINUS, PLUS]
-      is_prim: true
-      lib_name: BAG_prim
-      nets: []
-      out_terms: []
-      props:
-        l: [3, '']
         w: [3, '']
     pmos4_18:
       cell_name: pmos4_18
@@ -298,6 +261,17 @@ netlist_map:
       props:
         l: [3, '']
         w: [3, '']
+    res_standard:
+      cell_name: res_standard
+      in_terms: []
+      io_terms: [MINUS, PLUS]
+      is_prim: true
+      lib_name: BAG_prim
+      nets: []
+      out_terms: []
+      props:
+        l: [3, '']
+        w: [3, '']
   ahdlLib:
     comparator:
       cell_name: comparator
@@ -379,7 +353,7 @@ netlist_map:
       nets: []
       out_terms: []
       props:
-        c: [3, '']
+        c: [3, 1u]
     dcfeed:
       cell_name: dcfeed
       in_terms: []
@@ -389,7 +363,7 @@ netlist_map:
       nets: []
       out_terms: []
       props:
-        l: [3, '']
+        l: [3, 1u]
     gnd:
       cell_name: gnd
       ignore: true
@@ -462,6 +436,17 @@ netlist_map:
         pw: [3, '']
         srcType: [3, pulse]
         td: [3, '']
+    ipwlf:
+      cell_name: ipwlf
+      in_terms: []
+      io_terms: [PLUS, MINUS]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        fileName: [3, '']
+        srcType: [3, pwl]
     isin:
       cell_name: isin
       in_terms: []
@@ -475,6 +460,103 @@ netlist_map:
         ia: [3, '']
         idc: [3, '']
         srcType: [3, sine]
+    mind:
+      cell_name: mind
+      in_terms: []
+      io_terms: []
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        ind1: [3, '']
+        ind2: [3, '']
+        k: [3, '0']
+    n12port:
+      cell_name: n12port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2, t3, b3, t4, b4, t5, b5, t6, b6, t7, b7, t8, b8, t9,
+        b9, t10, b10, t11, b11, t12, b12]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n1port:
+      cell_name: n1port
+      in_terms: []
+      io_terms: [t1, b1]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n2port:
+      cell_name: n2port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n3port:
+      cell_name: n3port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2, t3, b3]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n4port:
+      cell_name: n4port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2, t3, b3, t4, b4]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n6port:
+      cell_name: n6port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2, t3, b3, t4, b4, t5, b5, t6, b6]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
+    n8port:
+      cell_name: n8port
+      in_terms: []
+      io_terms: [t1, b1, t2, b2, t3, b3, t4, b4, t5, b5, t6, b6, t7, b7, t8, b8]
+      is_prim: true
+      lib_name: analogLib
+      nets: []
+      out_terms: []
+      props:
+        dataFile: [3, '']
+        interp: [3, linear]
+        thermalnoise: [3, yes]
     port:
       cell_name: port
       in_terms: []
