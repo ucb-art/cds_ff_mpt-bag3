@@ -50,6 +50,7 @@ abstract*
 hdl.var
 lefout.list
 .stimulusFile.auCdl
+stream_template
 
 # calibre files
 .cgidrcdb
