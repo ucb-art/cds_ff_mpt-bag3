@@ -49,11 +49,16 @@ libManager.log.*
 abstract*
 hdl.var
 lefout.list
+.stimulusFile.auCdl
 
 # calibre files
 .cgidrcdb
 .cgilvsdb
 calibreview.setup
+ihnl
+map
+netlist
+si.env
 
 # pvs files
 .QRC.run
