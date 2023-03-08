@@ -95,6 +95,9 @@ thres_layers:
       !!python/tuple ['Nlvt', 'drawing']: [10, 50]
     hvt:
       !!python/tuple ['Nhvt', 'drawing']: [10, 50]
+  res_standard:
+    standard:
+      !!python/tuple ['Psvt', 'drawing']: [10, 50]
 
 # mapping from metal layer ID to layer/purpose pair that defines
 # a metal resistor.
@@ -367,8 +370,8 @@ mos:
     info_list:
       - [64, False, 64, 64, 64, 36, 80]
 
-  edge_margin: 180
-  end_margin: 768
+  edge_margin: &edge_margin 180
+  end_margin: &end_margin 768
 
   # OD quantization pitch.
   fin_p: 96
@@ -494,7 +497,48 @@ res_metal:
   mos_type_default: ''
   threshold_default: ''
 
+res_lay_table:
+  PO: !!python/tuple ['Poly', 'drawing']
+  RES: !!python/tuple ['pcres', 'drawing']
 
+res:
+  # ArrayBase vertical connection layer
+  conn_layer: 1
+  # Has substrate port
+  has_substrate_port: False
+  # Default mos conn type (unused)
+  mos_type_default: 'pch'
+  # Default threshold (unused)
+  threshold_default: 'standard'
+  # Default sub type
+  sub_type_default: 'ptap'
+  # only allowed width of poly86 rspp
+  w: 36
+  # minimum length of unit resistor
+  l_min: 232
+  # w / h of min resistors unit
+  min_size: !!python/tuple [540, 768]
+  # block x / y pitch
+  blk_pitch: !!python/tuple [180, 192]
+  # grid info for vertical metals
+  grid_info:
+    - [1, 64, 116]
+    - [3, 64, 116]
+    - [5, 116, 244]
+  # horizontal margin for abutting with another ResTech or MosTech
+  edge_margin: *edge_margin
+  # vertical margin for abutting with another ResTech or MosTech
+  end_margin: 192
+  # vertical extension of poly beyond the poly resistor
+  po_exty: 160
+  # vertical spacing between poly
+  po_spy: 136
+  # specs for via from PO to conn_layer
+  via_specs:
+    name: M1_LiPo
+    dim: [64, 64]
+    bot_enc: [18, 18]
+    top_enc: [0, 80]
 
 layer:
   BuriedNWell: 3
