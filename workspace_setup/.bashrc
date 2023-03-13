@@ -44,6 +44,7 @@ export PATH=${CDS_INST_DIR}/tools/bin:${PATH}
 export PATH=${MMSIM_HOME}/bin:${PATH}
 export PATH=${CMAKE_HOME}/bin:${PATH}
 export PATH=${BAG_TOOLS_ROOT}/bin:${PATH}
+export PATH=${BAG_PYTHON_ROOT}/bin:${PATH}
 export PATH=/tools/B/ayan_biswas/programs/core/bin:${PATH}
 
 # LD_LIBRARY_PATH setup
