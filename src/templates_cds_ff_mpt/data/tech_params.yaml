@@ -152,11 +152,11 @@ width_intervals:
     - [[64, 65], [80, 81], [120, .inf]]
     - [[64, 65], [80, 81], [120, .inf]]
   5:
-    - [[80, 81], [120, .inf]]
-    - [[80, 81], [120, .inf]]
+    - [[116, .inf]]
+    - [[116, .inf]]
   6:
-    - [[80, 81], [120, .inf]]
-    - [[80, 81], [120, .inf]]
+    - [[116, .inf]]
+    - [[116, .inf]]
   7:
     - [[200, .inf]]
     - [[200, .inf]]
@@ -678,8 +678,8 @@ layer:
   preFin: 12001
   Fin: 12003
   finGate: 12004
-  M1Mask1: 13000
-  M1Mask2: 13002
+  M1CA: 13000
+  M1CB: 13002
   M1Gray: 13004
   M1CutMask1: 13006
   M1CutMask2: 13008
@@ -688,8 +688,8 @@ layer:
   M1Mask2Cut: 13014
   M1GrayCut: 13016
   M1NotRes: 13018
-  M2Mask1: 13020
-  M2Mask2: 13022
+  M2CA: 13020
+  M2CB: 13022
   M2Gray: 13024
   M2CutMask1: 13026
   M2CutMask2: 13028
@@ -698,8 +698,8 @@ layer:
   M2Mask2Cut: 13034
   M2GrayCut: 13036
   M2NotRes: 13038
-  M3Mask1: 13040
-  M3Mask2: 13042
+  M3CA: 13040
+  M3CB: 13042
   M3Gray: 13044
   M3CutMask1: 13046
   M3CutMask2: 13048
@@ -738,12 +738,6 @@ layer:
   NPNdummy: 99933
   mimW: 99934
   mimL: 99935
-  M1CA: 13040
-  M3CB: 13062
-  M1CB: 13042
-  M2CA: 13050
-  M2CB: 13052
-  M3CA: 13060
 purpose:
   dynamic: 222
   fatal: 223

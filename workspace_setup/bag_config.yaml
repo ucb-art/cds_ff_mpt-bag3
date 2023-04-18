@@ -135,6 +135,10 @@ lef:
   class: 'bag.interface.abstract.AbstractInterface'
   run_dir: 'abstract_run'
   options_file: '${BAG_TECH_CONFIG_DIR}/abstract_setup/bag_abstract.options'
+  # the SubProcessManager class
+#  mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#  mgr_kwargs:
+#    queue: normal  # LSF queue
 
 # technology specific configuration are stored in a separate file.
 # this field tells BAG where to look for it.
