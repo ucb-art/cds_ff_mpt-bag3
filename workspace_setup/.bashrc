@@ -23,8 +23,7 @@ source .bashrc_bag
 export CDS_INST_DIR=/tools/cadence/ICADVM/ICADVM201
 export SPECTRE_HOME=/tools/cadence/SPECTRE/SPECTRE211
 export QRC_HOME=/tools/cadence/EXT/EXT191_ISR3
-export SRR_HOME=/tools/cadence/SRR/SRR_0618
-export CMAKE_HOME=/tools/B/ayan_biswas/programs/cmake-3.17.0-Linux-x86_64
+export CMAKE_HOME=/tools/C/bag/programs/cmake-3.17.0
 
 export CDSHOME=${CDS_INST_DIR}
 export MMSIM_HOME=${SPECTRE_HOME}
@@ -44,18 +43,11 @@ export PATH=${CDS_INST_DIR}/tools/bin:${PATH}
 export PATH=${MMSIM_HOME}/bin:${PATH}
 export PATH=${CMAKE_HOME}/bin:${PATH}
 export PATH=${BAG_TOOLS_ROOT}/bin:${PATH}
-export PATH=${BAG_PYTHON_ROOT}/bin:${PATH}
-export PATH=/tools/B/ayan_biswas/programs/core/bin:${PATH}
 
 # LD_LIBRARY_PATH setup
 export LD_LIBRARY_PATH=${BAG_WORK_DIR}/cadence_libs:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=${SRR_HOME}/tools/lib/64bit:${LD_LIBRARY_PATH:-}
 export LD_LIBRARY_PATH=${BAG_TOOLS_ROOT}/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib:${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=$/tools/B/ayan_biswas/programs/core/lib64:${LD_LIBRARY_PATH}
-
-# PYTHONPATH_CUSTOM setup
-export PYTHONPATH_CUSTOM=${PYTHONPATH_CUSTOM}:${SRR_HOME}/tools/srrpython
+export LD_LIBRARY_PATH=${BAG_TOOLS_ROOT}/lib64:${LD_LIBRARY_PATH}
 
 # Virtuoso options
 export SPECTRE_DEFAULTS=-E

@@ -94,7 +94,7 @@ database:
     # the SubProcessManager class
 #    mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
 #    mgr_kwargs:
-#      queue: rhel7  # LSF queue
+#      queue: normal  # LSF queue
 
 # Simulation configurations
 simulation:
@@ -117,7 +117,7 @@ simulation:
     # True to run in 64-bit mode
     run_64: True
     # output format
-    format: psfxl
+    format: psfbin  # psfxl
     # psf version
     psfversion: '1.1'
     options: ['++aps', '+lqtimeout', '0']  # , '+mt=2', '+mp=2']
@@ -128,7 +128,7 @@ simulation:
   # the SubProcessManager class
 #  mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
 #  mgr_kwargs:
-#    queue: rhel7  # LSF queue
+#    queue: normal  # LSF queue
 
 # LEF generation configuration
 lef:
