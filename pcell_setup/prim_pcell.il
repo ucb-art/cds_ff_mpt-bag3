@@ -443,14 +443,15 @@ pcDefinePCell(
 ; res_standard/rspp
 pcDefinePCell(
     list( lib_obj "res_standard" "schematic" "schematic")
-    ((w string "1u")
-     (l string "2u")
+    ((w string "18n")
+     (l string "200n")
     )
     let((inst iopin_master io_net io_pin)
         inst = dbCreateParamInstByMasterName( pcCellView "cds_ff_mpt" "rspp" "symbol"
                                               "R0" 0.5:0 "R270" 1
                                               list(list("w" "string" w)
                                                    list("l" "string" l)
+                                                   list("r" "float" 15.0*cdfParseFloatString(l)/cdfParseFloatString(w))
                                                   )
                                             )
         iopin_master = dbOpenCellViewByType("basic" "iopin" "symbolr" nil "r")

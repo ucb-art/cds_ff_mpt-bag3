@@ -1,4 +1,32 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: BSD-3-Clause AND Apache-2.0
+# Copyright 2018 Regents of the University of California
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+#
+# * Neither the name of the copyright holder nor the names of its
+#   contributors may be used to endorse or promote products derived from
+#   this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 # Copyright 2019 Blue Cheetah Analog Design Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -228,6 +256,10 @@ class MOSTechCDSFFMPT(MOSTech):
     def can_short_adj_tracks(self, conn_layer: int) -> bool:
         return False
 
+    @property
+    def can_draw_double_gate(self) -> bool:
+        return False
+
     def get_track_specs(self, conn_layer: int, top_layer: int) -> List[TrackSpec]:
         assert conn_layer == 1, 'currently only work for conn_layer = 1'
 
@@ -292,6 +324,10 @@ class MOSTechCDSFFMPT(MOSTech):
     def get_mos_row_info(self, conn_layer: int, specs: MOSRowSpecs, bot_mos_type: MOSType,
                          top_mos_type: MOSType, global_options: Param) -> MOSRowInfo:
         guard_ring: bool = specs.options.get('guard_ring', False)
+        guard_ring_col: bool = specs.options.get('guard_ring_col', False)
+        double_gate: bool = specs.double_gate
+        if double_gate:
+            raise ValueError("double_gate currently not supported!")
 
         assert conn_layer == 1, 'currently only work for conn_layer = 1'
 
@@ -372,7 +408,8 @@ class MOSTechCDSFFMPT(MOSTech):
         return MOSRowInfo(self.lch, w, w_sub, mos_type, specs.threshold, blk_yt, specs.flip,
                           top_einfo, bot_einfo, ImmutableSortedDict(info), conn_info.g,
                           conn_info.g_m, conn_info.ds, conn_info.ds_m, conn_info.ds_g,
-                          conn_info.sub, guard_ring=guard_ring and mos_type.is_substrate)
+                          conn_info.sub, guard_ring=guard_ring and mos_type.is_substrate,
+                          guard_ring_col=guard_ring_col)
 
     def get_ext_width_info(self, bot_row_ext_info: RowExtInfo, top_row_ext_info: RowExtInfo,
                            ignore_vm_sp_le: bool = False) -> ExtWidthInfo:

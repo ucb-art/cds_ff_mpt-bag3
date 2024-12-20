@@ -15,13 +15,19 @@
 
 BAG_framework:
   url: git@github.com:ucb-art/bag.git
-  branch: master
-xbase_bcad:
-  url: git@github.com:bluecheetah/xbase.git
-  branch: master
+  branch: without_OA
+xbase:
+  url: git@github.com:ucb-art/xbase.git
+  branch: without_OA
 bag3_digital:
-  url: git@github.com:bluecheetah/bag3_digital.git
-  branch: master
+  url: git@github.com:ucb-art/bag3_digital.git
+  branch: without_OA
 bag3_analog:
-  url: git@github.com:bluecheetah/bag3_analog.git
+  url: git@github.com:ucb-art/bag3_analog.git
+  branch: without_OA
+bag3_magnetics:
+  url: git@github.com:ucb-art/bag3_magnetics.git
   branch: master
+bag3_testbenches:
+  url: git@github.com:ucb-art/bag3_testbenches.git
+  branch: develop

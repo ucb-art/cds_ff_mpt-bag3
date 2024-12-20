@@ -37,33 +37,33 @@ mos:
   VERILOG: []
   SYSVERILOG: []
   types:
-    - [nmos4_18, n2svt]
-    - [nmos4_svt, n1svt]
-    - [nmos4_lvt, n1lvt]
-    - [nmos4_hvt, n1hvt]
-    - [nmos4_standard, n1svt]
-    - [nmos4_fast, n1lvt]
-    - [nmos4_low_power, n1hvt]
-    - [pmos4_18, p2svt]
-    - [pmos4_svt, p1svt]
-    - [pmos4_lvt, p1lvt]
-    - [pmos4_hvt, p1hvt]
-    - [pmos4_standard, p1svt]
-    - [pmos4_fast, p1lvt]
-    - [pmos4_low_power, p1hvt]
+    - [nmos4_18, {CDL: n2svt, SPECTRE: cds_ff_mpt_n2svt}]
+    - [nmos4_svt, {CDL: n1svt, SPECTRE: cds_ff_mpt_n1svt}]
+    - [nmos4_lvt, {CDL: n1lvt, SPECTRE: cds_ff_mpt_n1lvt}]
+    - [nmos4_hvt, {CDL: n1hvt, SPECTRE: cds_ff_mpt_n1hvt}]
+    - [nmos4_standard, {CDL: n1svt, SPECTRE: cds_ff_mpt_n1svt}]
+    - [nmos4_fast, {CDL: n1lvt, SPECTRE: cds_ff_mpt_n1lvt}]
+    - [nmos4_low_power, {CDL: n1hvt, SPECTRE: cds_ff_mpt_n1hvt}]
+    - [pmos4_18, {CDL: p2svt, SPECTRE: cds_ff_mpt_p2svt}]
+    - [pmos4_svt, {CDL: p1svt, SPECTRE: cds_ff_mpt_p1svt}]
+    - [pmos4_lvt, {CDL: p1lvt, SPECTRE: cds_ff_mpt_p1lvt}]
+    - [pmos4_hvt, {CDL: p1hvt, SPECTRE: cds_ff_mpt_p1hvt}]
+    - [pmos4_standard, {CDL: p1svt, SPECTRE: cds_ff_mpt_p1svt}]
+    - [pmos4_fast, {CDL: p1lvt, SPECTRE: cds_ff_mpt_p1lvt}]
+    - [pmos4_low_power, {CDL: p1hvt, SPECTRE: cds_ff_mpt_p1hvt}]
 
-diode:
-  CDL: []
-  SPECTRE: []
-  VERILOG: []
-  SYSVERILOG: []
-  static: False
-  types:
-    - [ndio_standard, ndio]
-    - [pdio_standard, pdio]
-  port_order:
-    ndio_standard: [PLUS, MINUS]
-    pdio_standard: [PLUD, MINUS]
+diode: {}
+#  CDL: []
+#  SPECTRE: []
+#  VERILOG: []
+#  SYSVERILOG: []
+#  static: False
+#  types:
+#    - [ndio_standard, ndio]
+#    - [pdio_standard, pdio]
+#  port_order:
+#    ndio_standard: [PLUS, MINUS]
+#    pdio_standard: [PLUS, MINUS]
 
 res_metal:
   CDL:
@@ -75,15 +75,15 @@ res_metal:
   VERILOG: []
   SYSVERILOG: []
   types:
-    - [res_metal_1, '$[resm1]']
-    - [res_metal_2, '$[resm2]']
-    - [res_metal_3, '$[resm3]']
-    - [res_metal_4, '$[resm4]']
-    - [res_metal_5, '$[resm5]']
-    - [res_metal_6, '$[resm6]']
-    - [res_metal_7, '$[resm7]']
-    - [res_metal_8, '$[resmt]']
-  write_res_val: True
+    - [res_metal_1, {CDL: '$[resm1]', SPECTRE: cds_ff_mpt_resm1}]
+    - [res_metal_2, {CDL: '$[resm2]', SPECTRE: cds_ff_mpt_resm2}]
+    - [res_metal_3, {CDL: '$[resm3]', SPECTRE: cds_ff_mpt_resm3}]
+    - [res_metal_4, {CDL: '$[resm4]', SPECTRE: cds_ff_mpt_resm4}]
+    - [res_metal_5, {CDL: '$[resm5]', SPECTRE: cds_ff_mpt_resm5}]
+    - [res_metal_6, {CDL: '$[resm6]', SPECTRE: cds_ff_mpt_resm6}]
+    - [res_metal_7, {CDL: '$[resm7]', SPECTRE: cds_ff_mpt_resm7}]
+    - [res_metal_8, {CDL: '$[resmt]', SPECTRE: cds_ff_mpt_resm8}]
+  write_res_val: {CDL: True, SPECTRE: False}
   res_map:
     1: 0.0736
     2: 0.0604
@@ -93,3 +93,18 @@ res_metal:
     6: 0.0604
     7: 0.0604
     8: 0.0214
+
+res:
+  CDL:
+    - [l, l]
+    - [w, w]
+    - [r, 15.0*l/w]
+  SPECTRE:
+    - [l, l]
+    - [w, w]
+  VERILOG: []
+  SYSVERILOG: []
+  types:
+    - [res_standard, {CDL: '$[rspp]', SPECTRE: cds_ff_mpt_rspp}]
+  num_ports:
+    res_standard: 2

@@ -31,15 +31,11 @@ To configure this repository for your own setup, the following files in the `wor
 
    modify so that they point to the right python/jupyter/pytest executable.
 
-5. .cshrc, .cshrc_bag
-
-   tcsh version of the bash setup.
-
-6. PDK
+5. PDK
 
    should symlink to the cds_ff_mpt PDK library downloaded from [Cadence Support](support.cadence.com)
 
-Finally, the "modelfile" entries in the `corners_setup.sdb` file in the top level directory should be modified to
+Finally, the "modelfile" entries in the `corners_setup.yaml` file in the top level directory should be modified to
 point to the correct location.
 
 # New repoitory installation
