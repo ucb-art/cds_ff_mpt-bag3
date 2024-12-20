@@ -451,6 +451,8 @@ pcDefinePCell(
                                               "R0" 0.5:0 "R270" 1
                                               list(list("w" "string" w)
                                                    list("l" "string" l)
+                                                   list("effw" "string" w)
+                                                   list("effl" "string" l)
                                                    list("r" "float" 15.0*cdfParseFloatString(l)/cdfParseFloatString(w))
                                                   )
                                             )
@@ -709,81 +711,6 @@ pcDefinePCell(
                                                    list("effw" "string" w)
                                                    list("effl" "string" l)
                                                    list("r" "float" rval)
-                                                  )
-                                            )
-
-        iopin_master = dbOpenCellViewByType("basic" "iopin" "symbolr" nil "r")
-        io_net = dbCreateNet(pcCellView "PLUS")
-        io_pin = dbCreatePin(io_net dbCreateInst(pcCellView iopin_master "PLUS" -0.15:0 "R0")
-                             "PLUS" dbCreateTerm(io_net "PLUS" "inputOutput"))
-        dbCreateInstTerm(io_net inst dbFindTermByName(inst~>master "PLUS"))
-        io_net = dbCreateNet(pcCellView "MINUS")
-        io_pin = dbCreatePin(io_net dbCreateInst(pcCellView iopin_master "MINUS" 1.15:0 "R0")
-                             "MINUS" dbCreateTerm(io_net "MINUS" "inputOutput"))
-        dbCreateInstTerm(io_net inst dbFindTermByName(inst~>master "MINUS"))
-    )
-)
-
-
-
-
-; ndio_standard/nd1svt
-pcDefinePCell(
-    list( lib_obj "ndio_standard" "schematic" "schematic")
-    ((w string "4")
-     (l string "4")
-    )
-    let((inst iopin_master io_net io_pin wval lval dio_w dio_l)
-        wval = atoi(w)
-        lval = atoi(l)
-        dio_w = (wval - 1)*48 + 14
-        dio_l = (lval + 1)*86 - 18
-
-        inst = dbCreateParamInstByMasterName( pcCellView "cds_ff_mpt" "nd1svt" "symbol"
-                                              "R0" 0.1:0 "R90" 1
-                                              list(list("nfin" "string" w)
-                                                   list("fw" "string" sprintf(nil "%dn" dio_w))
-                                                   list("nf" "string" l)
-                                                   list("dl" "string" sprintf(nil "%dn" dio_l))
-                                                   list("m" "string" "1")
-                                                   list("area" "float" dio_w*dio_l*1e-18)
-                                                   list("pj" "float" 2*1e-9*(dio_w + dio_l))
-                                                  )
-                                            )
-
-        iopin_master = dbOpenCellViewByType("basic" "iopin" "symbolr" nil "r")
-        io_net = dbCreateNet(pcCellView "PLUS")
-        io_pin = dbCreatePin(io_net dbCreateInst(pcCellView iopin_master "PLUS" -0.15:0 "R0")
-                             "PLUS" dbCreateTerm(io_net "PLUS" "inputOutput"))
-        dbCreateInstTerm(io_net inst dbFindTermByName(inst~>master "PLUS"))
-        io_net = dbCreateNet(pcCellView "MINUS")
-        io_pin = dbCreatePin(io_net dbCreateInst(pcCellView iopin_master "MINUS" 1.15:0 "R0")
-                             "MINUS" dbCreateTerm(io_net "MINUS" "inputOutput"))
-        dbCreateInstTerm(io_net inst dbFindTermByName(inst~>master "MINUS"))
-    )
-)
-
-; pdio_standard/pd1svt
-pcDefinePCell(
-    list( lib_obj "pdio_standard" "schematic" "schematic")
-    ((w string "4")
-     (l string "4")
-    )
-    let((inst iopin_master io_net io_pin wval lval dio_w dio_l)
-        wval = atoi(w)
-        lval = atoi(l)
-        dio_w = (wval - 1)*48 + 14
-        dio_l = (lval + 1)*86 - 18
-
-        inst = dbCreateParamInstByMasterName( pcCellView "cds_ff_mpt" "pd1svt" "symbol"
-                                              "R0" 0.1:0 "R90" 1
-                                              list(list("nfin" "string" w)
-                                                   list("fw" "string" sprintf(nil "%dn" dio_w))
-                                                   list("nf" "string" l)
-                                                   list("dl" "string" sprintf(nil "%dn" dio_l))
-                                                   list("m" "string" "1")
-                                                   list("area" "float" dio_w*dio_l*1e-18)
-                                                   list("pj" "float" 2*1e-9*(dio_w + dio_l))
                                                   )
                                             )
 
