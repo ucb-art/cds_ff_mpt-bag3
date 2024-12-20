@@ -20,17 +20,17 @@ export PYTHONPATH=""
 source .bashrc_bag
 
 # location of various tools
-export CDS_INST_DIR=/tools/cadence/ICADVM/ICADVM201
-export SPECTRE_HOME=/tools/cadence/SPECTRE/SPECTRE211
-export QRC_HOME=/tools/cadence/EXT/EXT191_ISR3
+export CDS_INST_DIR=/tools/cadence/IC/IC231_ISR9
+export SPECTRE_HOME=/tools/cadence/SPECTRE/SPECTRE231
+export QRC_HOME=/tools/cadence/QUANTUS/QUANTUS231
+export PVS_HOME=/tools/cadence/PVS/PVS231
 export CMAKE_HOME=/tools/C/bag/programs/cmake-3.17.0
 
 export CDSHOME=${CDS_INST_DIR}
 export MMSIM_HOME=${SPECTRE_HOME}
-export PVS_HOME=/tools/cadence/PVS/PVS151
 
 # OA settings
-export OA_CDS_ROOT=${CDS_INST_DIR}/oa_v22.60.s007
+export OA_CDS_ROOT=${CDS_INST_DIR}/oa_v22.61.016
 export OA_PLUGIN_PATH=${OA_CDS_ROOT}/data/plugins:${OA_PLUGIN_PATH:-}
 export OA_BIT=64
 
@@ -55,15 +55,6 @@ export CDS_AUTO_64BIT=ALL
 
 # License setup
 source /tools/flexlm/flexlm.sh
-
-# Setup LSF
-source /tools/support/lsf/conf/profile.lsf
-export LBS_BASE_SYSTEM=LBS_LSF
-
-# Enable devtoolset
-source /opt/rh/devtoolset-8/enable
-source /opt/rh/rh-git29/enable
-source /opt/rh/httpd24/enable
 
 # pybag compiler settings
 export CMAKE_PREFIX_PATH=${BAG_TOOLS_ROOT}
