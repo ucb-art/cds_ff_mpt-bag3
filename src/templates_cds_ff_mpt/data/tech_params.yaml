@@ -101,15 +101,17 @@ thres_layers:
 
 # mapping from metal layer ID to layer/purpose pair that defines
 # a metal resistor.
+# For this process, LVS can't recognize metal resistors with only the res layer
+# and the colored metal. Get around this by drawing another metal drawing.
 res_metal_layer_table:
-  1: [!!python/tuple ['m1res', 'drawing']]
-  2: [!!python/tuple ['m2res', 'drawing']]
-  3: [!!python/tuple ['m3res', 'drawing']]
-  4: [!!python/tuple ['m4res', 'drawing']]
-  5: [!!python/tuple ['m5res', 'drawing']]
-  6: [!!python/tuple ['m6res', 'drawing']]
-  7: [!!python/tuple ['m7res', 'drawing']]
-  8: [!!python/tuple ['mtres', 'drawing']]
+  1: [!!python/tuple ['m1res', 'drawing'], !!python/tuple ['M1', 'drawing']]
+  2: [!!python/tuple ['m2res', 'drawing'], !!python/tuple ['M2', 'drawing']]
+  3: [!!python/tuple ['m3res', 'drawing'], !!python/tuple ['M3', 'drawing']]
+  4: [!!python/tuple ['m4res', 'drawing'], !!python/tuple ['M4', 'drawing']]
+  5: [!!python/tuple ['m5res', 'drawing'], !!python/tuple ['M5', 'drawing']]
+  6: [!!python/tuple ['m6res', 'drawing'], !!python/tuple ['M6', 'drawing']]
+  7: [!!python/tuple ['m7res', 'drawing'], !!python/tuple ['M7', 'drawing']]
+  8: [!!python/tuple ['mtres', 'drawing'], !!python/tuple ['MT', 'drawing']]
 
 # mapping from metal layer ID to layer/purpose pair that
 # defines metal exclusion region.

@@ -91,6 +91,7 @@ database:
       drc: {}
       lvs: {}
       rcx: {}
+    enable_color: True
     # the SubProcessManager class
 #    mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
 #    mgr_kwargs:
