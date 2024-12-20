@@ -66,6 +66,7 @@ pcDefinePCell(
                                               "R0" 0.5:0 "R270" 1
                                               list(list("w" "string" w)
                                                    list("l" "string" l)
+                                                   list("r" "float" 15.0*cdfParseFloatString(l)/cdfParseFloatString(w))
                                                   )
                                             )
         iopin_master = dbOpenCellViewByType("basic" "iopin" "symbolr" nil "r")

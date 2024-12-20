@@ -76,4 +76,6 @@ if( isFile( ".cdsinit.personal" ) then
 ; open library manager
 ddsOpenLibManager()
 
+load("start_bag.il")
+
 printf("END OF CUSTOM CONFIG SETTINGS\n")

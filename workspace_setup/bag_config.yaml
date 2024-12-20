@@ -28,7 +28,7 @@ socket:
 # Right now only virtuoso is supported.
 database:
   # the python class that handles database interaction.
-  class: "bag.interface.oa.OAInterface"
+  class: "bag.interface.skill.SkillInterface"
   # default directory to create generated libraries in.
   default_lib_path: "${BAG_WORK_DIR}/gen_libs"
   # If true, then everytime we generate schematic/layout from BAG, all opened cellviews are closed
@@ -45,6 +45,16 @@ database:
     # cells to exclude for modeling purposes
     model_exclude_cells:
       basic: ['noConn']
+    # symbol pin master
+    sympin: ["basic", "sympin", "symbolNN"]
+    # input pin master
+    ipin: ["basic", "ipin", "symbol"]
+    # output pin master
+    opin: ["basic", "opin", "symbol"]
+    # inout pin master
+    iopin: ["basic", "iopin", "symbolr"]
+    # simulators where termOrder CDF field should be filled
+    simulators: ["auLvs", "auCdl", "spectre", "hspiceD"]
   # configurations used to create a Checker object to run LVS/RCX
   checker:
     # the Checker class.
@@ -57,9 +67,9 @@ database:
     source_added_file: ''
     # root directories
     root_dir:
-      drc: '${BAG_WORK_DIR}/pvs_run/drc'
-      lvs: '${BAG_WORK_DIR}/pvs_run/lvs'
-      rcx: '${BAG_WORK_DIR}/pvs_run/rcx'
+      drc: '${BAG_TEMP_DIR}/pvs_run/drc'
+      lvs: '${BAG_TEMP_DIR}/pvs_run/lvs'
+      rcx: '${BAG_TEMP_DIR}/pvs_run/rcx'
     # jinja template control files
     template:
       drc: ''
@@ -81,6 +91,10 @@ database:
       drc: {}
       lvs: {}
       rcx: {}
+    # the SubProcessManager class
+#    mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#    mgr_kwargs:
+#      queue: normal  # LSF queue
 
 # Simulation configurations
 simulation:
@@ -103,20 +117,28 @@ simulation:
     # True to run in 64-bit mode
     run_64: True
     # output format
-    format: psfxl
+    format: psfbin  # psfxl
     # psf version
     psfversion: '1.1'
-    options: ['++aps', '+lqtimeout', '0', '+mt=2', '+mp=2']
+    options: ['++aps', '+lqtimeout', '0']  # , '+mt=2', '+mp=2']
+  use_pysrr: true
   compress: True
   rtol: 1.0e-8
   atol: 1.0e-22
+  # the SubProcessManager class
+#  mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#  mgr_kwargs:
+#    queue: normal  # LSF queue
 
 # LEF generation configuration
 lef:
   class: 'bag.interface.abstract.AbstractInterface'
   run_dir: 'abstract_run'
   options_file: '${BAG_TECH_CONFIG_DIR}/abstract_setup/bag_abstract.options'
-
+  # the SubProcessManager class
+#  mgr_class: 'bag.concurrent.lsf.LSFSubProcessManager'  # runs jobs on the LSF
+#  mgr_kwargs:
+#    queue: normal  # LSF queue
 
 # technology specific configuration are stored in a separate file.
 # this field tells BAG where to look for it.

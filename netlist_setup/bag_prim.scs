@@ -109,6 +109,11 @@ parameters l w
 RR0 PLUS MINUS cds_ff_mpt_resm8  l=l w=w
 ends res_metal_8
 
+subckt res_standard MINUS PLUS
+parameters l w
+RR0 PLUS MINUS cds_ff_mpt_rspp l=l w=w
+ends res_standard
+
 subckt ideal_balun d c p n
     K0 d 0 p c transformer n1=2
     K1 d 0 c n transformer n1=2

@@ -108,3 +108,8 @@ RR0 PLUS MINUS $[resm7]  l=l w=w r=0.0604*l/w
 *.PININFO MINUS:B PLUS:B
 RR0 PLUS MINUS $[resmt]  l=l w=w r=0.0214*l/w
 .ENDS
+
+.SUBCKT res_standard MINUS PLUS
+*.PININFO MINUS:B PLUS:B
+RR0 PLUS MINUS $[rspp] l=l w=w r=15.0*l/w
+.ENDS
