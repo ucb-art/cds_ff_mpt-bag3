@@ -1,5 +1,5 @@
 # cds_ff_mpt
-BAG primitives for cds_ff_mpt technology.
+[BAG3++](https://github.com/ucb-art/bag) primitives for cds_ff_mpt technology.
 
 This repository serves as a good example on how the process-specific component of BAG should be set up.
 
@@ -10,6 +10,23 @@ under both Apache-2.0 and BSD-3-Clause license, meaning that the user must compl
 terms and conditions of both licenses.  See [here](LICENSE.BSD-3-Clause) for full text of the
 BSD license, and [here](LICENSE.Apache-2.0) for full text of the Apache license.  See individual
 files to check if they fall under Apache-2.0, or both Apache-2.0 and BSD-3-Clause.
+
+
+# Technology features and hints
+- Layout resolution is in 0.5nm.
+- Min channel length is 18nm, so min channel units is 36.
+- This tech has standard, lvt, and hvt devices.
+- Devices widths in this process are quantized in integer number of fins per finger/segment.
+   The minimum is 1 and the maximum is 100. For practical usage, the recommend values are
+   between 2 and 10.
+- This tech has 8 metal layers and an "M0" (LiPo) layer.
+- This tech has no pcell MOM caps. Manual ones can be drawn.
+- This tech has pcell MIM caps (`cmim`) between M7-MT and M4-M5. Both provide ~2.2 fF / um^2.
+
+SD pitch: 90 nm ~ 180 units. BAG quantizes vertical metal pitches to match the SD pitch ~ M1, M3, M5, M7.
+
+## Resistors
+- This tech has multiple flavors of poly resistors. Current BAG implements the `rspp` - P+ Poly resistor w/ salicide. Width is fixed at 18nm (36 units). Length is quantized to 1nm (2 unit).
 
 # Configuration
 
